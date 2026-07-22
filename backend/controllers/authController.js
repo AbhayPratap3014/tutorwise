@@ -1,6 +1,5 @@
 const { supabaseAdmin } = require("../config/supabase");
 const supabaseService = require("../services/supabaseService");
-const emailService = require("../services/emailService");
 
 // Supabase Auth itself handles signup/login/password reset from the
 // frontend via the JS client (see frontend/js/auth.js). This endpoint
@@ -21,11 +20,6 @@ async function completeRegistration(req, res, next) {
       name,
       class_num: classNum,
       avatar_url: null,
-    });
-
-    // Send welcome email (async — don't block response)
-    emailService.sendWelcomeEmail(req.user.email, name).catch(err => {
-      console.error("Welcome email failed (non-fatal):", err.message);
     });
 
     res.status(201).json({ profile });
