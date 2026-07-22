@@ -30,10 +30,16 @@
   <main class="flex-grow-1 p-3 p-md-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
       <div>
+        <a href="../index.html" class="dashboard-logo text-gradient d-inline-block mb-2">TutorWise</a>
         <h3 class="mb-0" id="welcomeMsg">Welcome back 👋</h3>
         <p class="text-muted-soft mb-0">Here's how your learning is going.</p>
       </div>
-      <button class="theme-toggle" onclick="toggleTutorwiseTheme()"><i id="themeToggleIcon" class="fa-solid fa-moon"></i></button>
+      <div class="d-flex align-items-center gap-2 header-actions">
+        <button class="theme-toggle" onclick="toggleTutorwiseTheme()"><i id="themeToggleIcon" class="fa-solid fa-moon"></i></button>
+        <button class="btn btn-outline-brand btn-sm logout-btn" onclick="TutorwiseAuth.logout()">
+          <i class="fa-solid fa-right-from-bracket me-1"></i> Log out
+        </button>
+      </div>
     </div>
 
     <!-- Mobile action bar: Start Test visible at top on small screens -->
