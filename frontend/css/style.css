@@ -471,6 +471,14 @@ strong {
   background: #3867d6;
 }
 
+.btn-discord {
+  background: #5865F2;
+}
+
+.btn-discord:hover {
+  background: #4752c4;
+}
+
 .social-login {
   border: 1px solid rgba(148, 163, 184, 0.12);
   padding: 0.9rem 0.85rem;

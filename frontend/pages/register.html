@@ -23,6 +23,9 @@
       <button class="btn btn-social btn-google w-100" id="googleBtn" type="button">
         <i class="fa-brands fa-google me-2"></i> Continue with Google
       </button>
+      <button class="btn btn-social btn-discord w-100 mt-3" id="discordBtn" type="button">
+        <i class="fa-brands fa-discord me-2"></i> Continue with Discord
+      </button>
       <div class="divider"><span>Or use email</span></div>
     </div>
 
@@ -66,16 +69,20 @@
   const alertBox = document.getElementById("alertBox");
   const registerBtn = document.getElementById("registerBtn");
   const googleBtn = document.getElementById("googleBtn");
+  const discordBtn = document.getElementById("discordBtn");
 
-  googleBtn.addEventListener("click", async () => {
+  const oauthErrorHandler = async (provider, providerName) => {
     alertBox.classList.add("d-none");
     try {
-      await TutorwiseAuth.loginWithProvider("google");
+      await TutorwiseAuth.loginWithProvider(provider);
     } catch (err) {
-      alertBox.textContent = err.message || "Google sign-up failed.";
+      alertBox.textContent = err.message || `${providerName} sign-up failed.`;
       alertBox.classList.remove("d-none");
     }
-  });
+  };
+
+  googleBtn.addEventListener("click", () => oauthErrorHandler("google", "Google"));
+  discordBtn.addEventListener("click", () => oauthErrorHandler("discord", "Discord"));
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();

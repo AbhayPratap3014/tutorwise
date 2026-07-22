@@ -53,11 +53,16 @@ const TutorwiseAuth = {
   // Redirects to login if there's no active session. Call at the top
   // of every protected page (dashboard, quiz, result, profile, admin).
   async requireSession() {
-    const session = await this.getSession();
-    if (!session) {
-      window.location.href = "/pages/login.html";
+    try {
+      const session = await this.getSession();
+      if (!session) {
+        await this.logout();
+        return null;
+      }
+      return session;
+    } catch (err) {
+      await this.logout();
       return null;
     }
-    return session;
   },
 };
