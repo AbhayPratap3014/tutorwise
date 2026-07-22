@@ -49,13 +49,6 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
   min-height: 100vh;
   position: relative;
-  min-width: 1024px;
-}
-
-@media (max-width: 1024px) {
-  body {
-    overflow-x: auto;
-  }
 }
 
 body::before {
