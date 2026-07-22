@@ -17,7 +17,24 @@ assertRequiredEnv();
 const app = express();
 
 app.use(helmet());
-app.use(cors({ origin: env.frontendUrl, credentials: true }));
+// Allow both the configured frontend URL and tutorwise-plum.vercel.app
+const corsOptions = {
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      env.frontendUrl,
+      'https://tutorwise-plum.vercel.app',
+      'https://tutorwise.vercel.app',
+      'http://localhost:3000' // for local development
+    ];
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS not allowed'));
+    }
+  },
+  credentials: true
+};
+app.use(cors(corsOptions));
 app.use(express.json({ limit: "1mb" }));
 app.use(morgan(env.nodeEnv === "development" ? "dev" : "combined"));
 
