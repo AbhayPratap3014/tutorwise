@@ -1,10 +1,68 @@
-# TutorWise — AI-Powered Personalized Tutoring and Assessment Platform
+# TutorWise — AI-Powered Personalized Tutoring for CBSE
 
-A CBSE Classes 1–10 tutoring platform where students take AI-generated NCERT-style
-quizzes, get instant scoring with charts, receive AI mistake analysis and a
-personalized study plan, and track progress over time.
+**TutorWise** is an adaptive AI tutoring platform that helps CBSE students (Classes 1–10) study smarter, not harder.
 
-Built as a B.Tech Social Internship project (SDG 4 — Quality Education).
+## What It Does
+
+1. **AI-Generated Quizzes** — Pick your subject, chapter, and difficulty level. TutorWise instantly generates unique NCERT-aligned questions tailored to your learning level.
+
+2. **Instant Feedback & Scoring** — Complete a quiz and get:
+   - Your score breakdown (topic-wise accuracy)
+   - Which topics you're strong in and where you're struggling
+   - Explanation of why you got answers wrong
+
+3. **AI Mistake Analysis** — Our AI analyzes each wrong answer and explains:
+   - The core concept you missed
+   - Common misconceptions
+   - How to approach similar problems
+
+4. **Personalized Study Plan** — After each quiz, get a custom 7-day study plan that focuses on your weak areas:
+   - Prioritized topics to revise
+   - Estimated time to spend on each topic
+   - Link to NCERT chapters for reference
+
+5. **Progress Tracking** — Dashboard shows:
+   - All your past quiz attempts with scores
+   - Progress charts for each subject and topic
+   - Trending weak areas
+   - Time spent studying
+
+## How It Works
+
+**For Students:**
+1. Sign up and select your class
+2. Go to Dashboard → "Create Quiz"
+3. Pick a subject, chapter, and difficulty
+4. Answer 10 auto-generated questions
+5. Get instant score breakdown and AI-powered mistake analysis
+6. Receive a personalized study plan
+7. Track progress in your profile
+
+**Under the Hood:**
+- Frontend calls `/api/quiz/generate` with chapter + difficulty
+- Backend uses **Claude/OpenAI/Gemini API** to generate questions
+- Responses stored in **Supabase PostgreSQL**
+- Student answers evaluated by AI for explanations
+- Progress data aggregated into charts (Chart.js)
+- All data encrypted and secured with Row Level Security
+
+## Why It's Different
+
+| Feature | TutorWise | Traditional Tutoring | Generic Quiz Sites |
+|---------|-----------|---------------------|-------------------|
+| AI-Generated | ✅ Every quiz is unique | ❌ One-size-fits-all | ✅ But generic |
+| Adaptive Difficulty | ✅ Adjusts to your level | ⚠️ Fixed by tutor | ❌ No adaptation |
+| Instant Feedback | ✅ Immediate AI analysis | ⚠️ Wait for tutor | ✅ But shallow |
+| Study Plan | ✅ AI-powered, personalized | ✅ But manual | ❌ None |
+| NCERT-Aligned | ✅ Built for CBSE | ✅ Some tutors are | ❌ Generic questions |
+| 24/7 Availability | ✅ Always on | ❌ Limited hours | ✅ But impersonal |
+| Cost | ✅ Free | ❌ ₹500–2000/hour | ✅ But limited features |
+
+## Built For SDG 4 (Quality Education)
+
+TutorWise is built to make personalized tutoring accessible to every student, regardless of their background or resources. No paywalls. No subscriptions. Just pure, AI-powered learning.
+
+**Built as a B.Tech Social Internship project.**
 
 ---
 
