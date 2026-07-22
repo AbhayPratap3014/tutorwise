@@ -772,3 +772,15 @@ strong {
   }
   .section-padding { padding: 3rem 0; }
 }
+
+/* Mobile action bar: show prominent Start Test at top of dashboard on small screens */
+.mobile-action-bar { display: none; }
+@media (max-width: 991.98px) {
+  .mobile-action-bar { display: flex; gap: 0.6rem; align-items: center; justify-content: center; position: sticky; top: 0; z-index: 1100; padding: 0.6rem 0.8rem; background: var(--surface); border-bottom: 1px solid var(--border); }
+  .mobile-action-bar .btn-brand { padding: 0.55rem 1rem; border-radius: 10px; box-shadow: 0 8px 24px rgba(245,158,11,0.12); }
+  .mobile-action-bar .btn-outline-brand { display: none; }
+}
+
+/* Back to dashboard — make it highly visible and red */
+.btn-back-dashboard { background: var(--danger); color: #fff; border: none; font-weight: 700; padding: 0.45rem 0.8rem; border-radius: 8px; }
+.btn-back-dashboard:hover { filter: brightness(0.95); box-shadow: 0 8px 30px rgba(239,68,68,0.18); }
