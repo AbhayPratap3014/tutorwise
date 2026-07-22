@@ -289,6 +289,12 @@ a { text-decoration: none; }
   max-width: 240px;
 }
 
+.testimonial-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
 .chart-bar-preview canvas {
   width: 100% !important;
   height: auto !important;
