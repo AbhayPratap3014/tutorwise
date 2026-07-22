@@ -23,6 +23,16 @@ const TutorwiseAuth = {
     return data;
   },
 
+  async loginWithProvider(provider) {
+    const { error } = await window.supabaseClient.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo: `${window.location.origin}/pages/dashboard.html`,
+      },
+    });
+    if (error) throw error;
+  },
+
   async logout() {
     await window.supabaseClient.auth.signOut();
     window.location.href = "/pages/login.html";
