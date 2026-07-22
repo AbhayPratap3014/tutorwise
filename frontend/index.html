@@ -315,9 +315,25 @@
       if (loadingScreen) {
         loadingScreen.classList.remove('hidden');
       }
+
+      const targetUrl = beginQuestionsBtn.getAttribute('href');
+      const hideLoading = () => {
+        const loadingScreen = document.getElementById('loadingScreen');
+        if (loadingScreen) {
+          loadingScreen.classList.add('hidden');
+        }
+      };
+
       setTimeout(() => {
-        window.location.href = beginQuestionsBtn.getAttribute('href');
+        window.location.href = targetUrl;
       }, 500);
+
+      // Fallback: if navigation doesn't happen, hide loader after 1.5s
+      setTimeout(() => {
+        if (window.location.href.indexOf(targetUrl) === -1) {
+          hideLoading();
+        }
+      }, 1500);
     });
   }
 </script>
