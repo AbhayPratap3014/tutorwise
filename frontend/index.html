@@ -64,7 +64,7 @@
           AI-powered NCERT quizzes, instant feedback, and Analysis.
         </p>
         <div class="d-flex gap-3 flex-wrap">
-          <a href="pages/register.html" class="btn btn-brand btn-lg btn-animated">
+          <a id="beginQuestionsBtn" href="pages/register.html" class="btn btn-brand btn-lg btn-animated">
             <span>Begin Questions</span>
             <i class="fa-solid fa-arrow-right arrow-animate"></i>
           </a>
@@ -304,6 +304,20 @@
       alertBox.textContent = 'Thanks! Your message has been sent successfully.';
       setTimeout(() => alertBox.classList.add('d-none'), 5000);
       contactForm.reset();
+    });
+  }
+
+  const beginQuestionsBtn = document.getElementById('beginQuestionsBtn');
+  if (beginQuestionsBtn) {
+    beginQuestionsBtn.addEventListener('click', function(event) {
+      event.preventDefault();
+      const loadingScreen = document.getElementById('loadingScreen');
+      if (loadingScreen) {
+        loadingScreen.classList.remove('hidden');
+      }
+      setTimeout(() => {
+        window.location.href = beginQuestionsBtn.getAttribute('href');
+      }, 500);
     });
   }
 </script>
