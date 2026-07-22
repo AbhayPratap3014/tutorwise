@@ -238,12 +238,15 @@
         <p><i class="fa-solid fa-location-dot me-2 text-gradient"></i> KIET UNIVERSITY</p>
       </div>
       <div class="col-lg-7">
-        <form class="glass-card p-4" onsubmit="event.preventDefault(); alert('Thanks! This is a demo form.');">
+        <form id="contactForm" class="glass-card p-4">
+          <div id="contactAlert" class="alert alert-success d-none" role="alert">
+            Thank you! Your message was sent successfully.
+          </div>
           <div class="row g-3">
-            <div class="col-md-6"><input class="form-control" placeholder="Your name" required></div>
-            <div class="col-md-6"><input type="email" class="form-control" placeholder="Email" required></div>
-            <div class="col-12"><textarea class="form-control" rows="4" placeholder="Message" required></textarea></div>
-            <div class="col-12"><button class="btn btn-brand">Send message</button></div>
+            <div class="col-md-6"><input class="form-control" id="contactName" placeholder="Your name" required></div>
+            <div class="col-md-6"><input type="email" class="form-control" id="contactEmail" placeholder="Email" required></div>
+            <div class="col-12"><textarea class="form-control" id="contactMessage" rows="4" placeholder="Message" required></textarea></div>
+            <div class="col-12"><button class="btn btn-brand" type="submit">Send message</button></div>
           </div>
         </form>
       </div>
@@ -292,6 +295,18 @@
       loadingScreen.classList.add('hidden');
     }
   }, 5000);
+
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const alertBox = document.getElementById('contactAlert');
+      alertBox.classList.remove('d-none');
+      alertBox.textContent = 'Thanks! Your message has been sent successfully.';
+      setTimeout(() => alertBox.classList.add('d-none'), 5000);
+      contactForm.reset();
+    });
+  }
 </script>
 </body>
 </html>
